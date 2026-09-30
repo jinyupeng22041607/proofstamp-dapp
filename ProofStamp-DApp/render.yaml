@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: proofstamp-dapp
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./public
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
